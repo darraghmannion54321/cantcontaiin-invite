@@ -9,7 +9,7 @@
   try { var _existing = JSON.parse(localStorage.getItem('tv-scene-v1') || 'null'); var _merged = Object.assign({}, _def, _existing || {}); localStorage.setItem('tv-scene-v1', JSON.stringify(_merged)); } catch(e) { try { localStorage.setItem('tv-scene-v1', JSON.stringify(_def)); } catch(e2) {} }
   // Always force the locked label position — overrides any stale value saved on
   // a returning visitor's device (otherwise old positions stick forever).
-  localStorage.setItem('tv-invite-label', JSON.stringify({"ox":-0.0155,"oy":-10.9847,"size":8}));
+  localStorage.setItem('tv-invite-label', JSON.stringify({"ox":-0.0155,"oy":-10.9847,"size":12}));
   if (!localStorage.getItem('tv-smiley-y')) {
     localStorage.setItem('tv-smiley-y', '8px');
   }
