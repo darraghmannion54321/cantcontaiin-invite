@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var _def = {"bg-color":"#ffffff","tv-scale":"4.18","tv-x":"3.29","tv-y":"-0.04","tv-z":"-0.01","tv-ry":"90","table-scale":"3.13","table-x":"4.95","table-y":"-2.67","table-z":"0","table-ry":"90","con-scale":"0.05","con-x":"1.65","con-y":"2.72","con-z":"-5","con-ry":"0","scr-scale":"0.93","scr-w":"2.78","scr-h":"2.19","scr-x":"5","scr-y":"0.91","scr-z":"0.02","scr-ry":"-92","sf-exp":"-0.37","sf-bri":"-0.08","sf-con":"-0.1","sf-gamma":"0.82","sf-lift":"0","sf-gain":"1.39","sf-sat":"0","sf-hue":"-22","sf-warm":"-0.28","sf-tint":"0.73","sf-sharp":"0","sf-vig":"1.96","cx-pos":"0.83","cy-pos":"0.84","cz-pos":"-4","cam-x":"0.02","cam-y":"1.4","cam-z":"-0.09","cam-pan":"90","cam-tilt":"-7","fov":"67","nv-on":"1","nv-range":"39","nv-power":"8.5","nv-grain":"1","nv-bloom":"0","nv-vig":"1.42","nv-tint-col":"#adffbc","f-exp":"2.58","f-con":"0.02","f-hi":"0.27","f-sh":"-0.01","f-whites":"-0.04","f-blacks":"0.04","f-gamma":"1","f-lift":"0","f-gain":"1.49","f-rl":"-0.08","f-rg":"0.3","f-rgain":"1.84","f-gl":"0.03","f-gg":"0.95","f-ggain":"0.94","f-bl":"0.01","f-sat":"-1","f-vib":"1","f-warm":"0.11","f-tint":"-0.24","f-hue":"0","f-sharp":"0","f-clarity":"0.08","f-texture":"-0.04","f-dehaze":"0.17","f-fade":"0","f-nr":"0","f-ca":"0","f-grain":"0.65","f-vig":"1.55","f-vig-f":"0.63","f-bloom":"2","f-bg":"1","f-bgain":"1.27","f-hi-col":"#5b9753","f-hi-blend":"0","f-mid-col":"#808080","f-mid-blend":"0.65","f-sh-col":"#000000","f-sh-blend":"0.76","planeEnabled":{"x":false,"y":false,"z":false},"planeFlipped":{"x":1,"y":1,"z":1}};
+  try { var _existing = JSON.parse(localStorage.getItem('tv-scene-v1') || 'null'); var _merged = Object.assign({}, _def, _existing || {}); localStorage.setItem('tv-scene-v1', JSON.stringify(_merged)); } catch(e) { try { localStorage.setItem('tv-scene-v1', JSON.stringify(_def)); } catch(e2) {} }
+  if (!localStorage.getItem('tv-invite-label')) {
+    localStorage.setItem('tv-invite-label', JSON.stringify({"ox":-0.0155,"oy":-20.8369,"size":8}));
+  }
+  if (!localStorage.getItem('tv-smiley-y')) {
+    localStorage.setItem('tv-smiley-y', '8px');
+  }
+})();
+</script>
+<title>CANT CONTAiiN INVITE</title>
+<meta name="description" content="You've been invited to record a set with CANT CONTAiiN.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CANT CONTAiiN INVITE">
+<meta property="og:description" content="You've been invited to record a set with CANT CONTAiiN.">
+<meta property="og:image" content="https://darraghmannion54321.github.io/cantcontaiin-invite/og-image.jpg">
+<meta property="og:url" content="https://darraghmannion54321.github.io/cantcontaiin-invite/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CANT CONTAiiN INVITE">
+<meta name="twitter:description" content="You've been invited to record a set with CANT CONTAiiN.">
+<meta name="twitter:image" content="https://darraghmannion54321.github.io/cantcontaiin-invite/og-image.jpg">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; overflow: hidden; font-family: monospace; }
+  canvas { display: block; }
+
+  @media (max-width: 768px) {
+    #invite-form {
+      width: 332px !important;
+      height: 447px !important;
+    }
+  }
+
+  #panel {
+    display: none;
+  }
+
+  #panel h2 {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .section {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .section:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .section-title {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .row label {
+    color: #666;
+    width: 44px;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .row input[type=range] {
+    flex: 1;
+    accent-color: #00ff60;
+    height: 2px;
+    min-width: 0;
+  }
+
+  .row input[type=color] {
+    width: 26px;
+    height: 18px;
+    border: 1px solid #333;
+    border-radius: 2px;
+    cursor: pointer;
+    background: none;
+    padding: 1px;
+  }
+
+  .val {
+    color: #444;
+    width: 30px;
+    text-align: right;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* Clipping planes */
+  .plane-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .plane-toggle {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #444;
+    border-radius: 2px;
+    cursor: pointer;
+    background: transparent;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: #00ff60;
+  }
+
+  .plane-toggle.off { color: #333; border-color: #2a2a2a; }
+
+  .plane-label {
+    font-size: 9px;
+    color: #555;
+    width: 20px;
+    flex-shrink: 0;
+  }
+
+  .plane-row input[type=range] {
+    flex: 1;
+    accent-color: #00ff60;
+    height: 2px;
+    min-width: 0;
+  }
+
+  .flip-btn {
+    background: none;
+    border: 1px solid #333;
+    color: #555;
+    font-family: monospace;
+    font-size: 9px;
+    padding: 1px 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .flip-btn:hover { border-color: #00ff60; color: #00ff60; }
+
+  #hint {
+    position: fixed;
+    bottom: 14px;
+    left: 14px;
+    font-size: 10px;
+    color: #2a2a2a;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<!-- Visual text label — pointer-events none, purely visual -->
+<div id="invite-label" style="position:fixed;z-index:99999;font-family:monospace;letter-spacing:0.18em;text-transform:uppercase;user-select:none;pointer-events:none;cursor:default;left:50%;top:80%;transform:translate(-50%,-50%);font-size:13px;white-space:nowrap;transition:color 0.3s ease,filter 0.3s ease,opacity 0.8s ease;opacity:0;">[CLICK TO VIEW INVITE]</div>
+
+<!-- Hitbox — draggable, resizable, triggers invite click -->
+<div id="invite-hitbox" style="position:fixed;z-index:99998;cursor:pointer;box-sizing:border-box;border:none;left:40%;top:76%;width:200px;height:40px;"></div>
+
+<!-- Invite terminal popup -->
+<div id="invite-form" style="display:none;position:fixed;z-index:999999;background:#000;border:1px solid #1a5c2a;left:50%;top:50%;transform:translate(-50%,-50%);width:474px;height:638px;box-sizing:border-box;flex-direction:column;padding:24px 24px 20px;overflow-y:auto;">
+<button id="invite-form-close" style="position:absolute;top:14px;right:18px;background:none;border:none;color:#1a5c2a;font-size:1rem;cursor:crosshair;font-family:monospace;letter-spacing:0.1em;transition:color 0.2s;z-index:2;">[close]</button>
+  <img src="logo-header.png" style="width:50%;display:block;margin:0 auto 14px;pointer-events:none;">
+  <div id="invite-terminal-text" style="font-family:'Courier New',Courier,monospace;font-size:clamp(0.75rem,1.5vw,0.95rem);line-height:1.4;color:#00ff41;white-space:pre-wrap;word-break:break-word;text-shadow:0 0 6px rgba(0,255,65,0.7),0 0 18px rgba(0,255,65,0.35);"></div>
+  <div id="invite-input-area" style="display:none;margin-top:20px;line-height:0;">
+    <textarea id="invite-availability" style="width:100%;height:80px;background:#000;border:1px solid #1a5c2a;color:#00ff41;font-family:'Courier New',Courier,monospace;font-size:0.85rem;padding:10px 14px;outline:none;resize:none;box-sizing:border-box;letter-spacing:0.04em;display:block;"></textarea>
+    <button id="invite-submit" style="display:block;width:100%;background:#1a5c2a;color:#fff;border:none;padding:12px;font-family:monospace;font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;cursor:crosshair;transition:background 0.2s;line-height:normal;">Submit →</button>
+    <div id="invite-confirm" style="display:none;padding-top:8px;line-height:normal;text-align:center;"><div id="smiley-wrap" style="display:inline-block;position:relative;top:8px;cursor:ns-resize;"><img id="smiley-img" src="smiley.png" style="width:48px;opacity:0.85;display:block;margin:0 auto 8px;"><div style="font-family:'Courier New',Courier,monospace;font-size:0.7rem;letter-spacing:0.18em;color:#00ff41;text-transform:uppercase;">Thank you.</div></div></div>
+  </div>
+</div>
+
+<style>
+#invite-label {
+  color: #2e8b4a;
+  animation: invitePulse 3.5s ease-in-out infinite;
+}
+@keyframes invitePulse {
+  0%   { filter: drop-shadow(0 0 3px rgba(120,220,140,0.3)); transform: translate(-50%,-50%) scale(1); }
+  50%  { filter: drop-shadow(0 0 8px rgba(120,220,140,0.5)); transform: translate(-50%,-50%) scale(1.02); }
+  100% { filter: drop-shadow(0 0 3px rgba(120,220,140,0.3)); transform: translate(-50%,-50%) scale(1); }
+}
+#invite-label.hover,
+#invite-label.active {
+  color: #fff;
+  filter: none;
+  animation: none;
+}
+#invite-form-close:hover { color:#00ff41; }
+.inv-cursor {
+  display:inline-block;
+  width:0.65em; height:1.1em;
+  background:#00ff41;
+  vertical-align:text-bottom;
+  margin-left:2px;
+  animation:invBlink 0.9s step-start infinite;
+}
+@keyframes invBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+#invite-form-close:hover,
+#invite-form-close:active { color: #00ff41; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var lbl  = document.getElementById('invite-label');
+  var szEl = document.getElementById('lbl-size');
+  var szV  = document.getElementById('lbl-size-v');
+
+  // Label is anchored to the TV: its position is stored as an OFFSET (in stage-%
+  // units) from the TV's projected screen position — NOT an absolute window %.
+  // That way it stays welded to the TV across resize / refresh / any screen size.
+  var offX = 0, offY = 0, size = 13;
+  var legacyAbs = null;  // holds old absolute {x,y} until we can re-anchor to TV
+
+  // Restore saved offset. New format = {ox,oy,size}. Old format {x,y,size} is
+  // migrated to an offset on the first frame the TV is projectable.
+  try {
+    var s = JSON.parse(localStorage.getItem('tv-invite-label') || 'null');
+    if (s) {
+      size = parseFloat(s.size != null ? s.size : 13);
+      if (s.ox !== undefined) { offX = parseFloat(s.ox); offY = parseFloat(s.oy); }
+      else { legacyAbs = { x: parseFloat(s.x), y: parseFloat(s.y) }; }
+    }
+  } catch(e) {}
+  if (szEl) szEl.value = size;
+  if (szV)  szV.textContent = size;
+  lbl.style.fontSize = size + 'px';
+
+  // Project the TV's world position to a stage-% coordinate.
+  function projectTV() {
+    var models = window._three_models, cam = window._three_camera, stage = window._three_stage;
+    if (!models || !models.tv || !cam || !stage) return null;
+    var p = new THREE.Vector3();
+    models.tv.getWorldPosition(p);
+    p.project(cam);
+    return { x: (p.x * 0.5 + 0.5) * 100, y: (-p.y * 0.5 + 0.5) * 100 };
+  }
+
+  // Position the label at TV-projected point + saved offset. Called every frame.
+  function positionLabel() {
+    var tv = projectTV();
+    if (!tv) return;
+    if (legacyAbs) {           // one-time migration: keep it exactly where it was
+      offX = legacyAbs.x - tv.x;
+      offY = legacyAbs.y - tv.y;
+      legacyAbs = null;
+      saveLabel();
+    }
+    // Scale font with the stage so the label stays proportional to the scene
+    var stageEl = window._three_stage;
+    var sw = stageEl ? stageEl.getBoundingClientRect().width : window.innerWidth;
+    var fontPx = size * (sw / 1000);
+    lbl.style.left      = (tv.x + offX) + '%';
+    lbl.style.top       = (tv.y + offY) + '%';
+    lbl.style.fontSize  = fontPx + 'px';
+    lbl.style.transform = 'translate(-50%,-50%)';
+    if (typeof syncHitbox === 'function') syncHitbox();
+  }
+  window._positionInviteLabel = positionLabel;
+
+  function saveLabel() {
+    localStorage.setItem('tv-invite-label', JSON.stringify({ ox: offX, oy: offY, size: size }));
+  }
+
+  if (szEl) szEl.addEventListener('input', function(){
+    size = parseFloat(szEl.value);
+    if (szV) szV.textContent = szEl.value;
+    positionLabel(); saveLabel();
+  });
+
+  // Position is locked — the label is welded to the TV and no longer draggable.
+
+  // ── Hitbox — auto-tracks label position ─────────────────────────────────
+  var hb = document.getElementById('invite-hitbox');
+  hb.addEventListener('mouseenter', function(){ lbl.classList.add('hover'); });
+  hb.addEventListener('mouseleave', function(){ lbl.classList.remove('hover'); });
+
+  function syncHitbox() {
+    var lr = lbl.getBoundingClientRect();
+    var sr = hb.parentElement ? hb.parentElement.getBoundingClientRect() : { left:0, top:0 };
+    var pad = 16;
+    hb.style.left   = (lr.left - sr.left - pad) + 'px';
+    hb.style.top    = (lr.top  - sr.top  - pad) + 'px';
+    hb.style.width  = (lr.width  + pad*2) + 'px';
+    hb.style.height = (lr.height + pad*2) + 'px';
+  }
+  syncHitbox();
+  setInterval(syncHitbox, 200);
+
+  var hbReady = false;
+  setTimeout(function(){ hbReady = true; }, 1000);
+  hb.addEventListener('click', function(e){ e.stopPropagation(); e.preventDefault(); if (hbReady) openInviteForm(); });
+  hb.addEventListener('touchend', function(e){ e.stopPropagation(); e.preventDefault(); if (hbReady) openInviteForm(); });
+
+  // ── Invite terminal ──────────────────────────────────────────────────────
+  var frm      = document.getElementById('invite-form');
+  var frmText  = document.getElementById('invite-terminal-text');
+  var frmClose = document.getElementById('invite-form-close');
+  var invTypingTimer = null;
+
+  var inviteTextA = "HELLO,\n\nYOU'VE BEEN INVITED TO RECORD A SET WITH\n\nCANT CONTAiiN\n\nBASED IN GALWAY, IRELAND. RECORDINGS TAKE PLACE IN A PITCH BLACK CONTAINER. YOU WILL RECEIVE A MYSTERY TRACK REQUEST FROM A PREVIOUS DJ ON A USB… MIX IT IN AND YOU CAN LEAVE A TRACK FOR THE GUEST AFTER YOU.\n\nSHOT FROM 6PM ONWARDS MON–SUN.\n\nPLEASE ENTER:\n\n1. DJ NAME\n2. AVAILABILITY… DATE & TIME\n\nPRESS SUBMIT TO CONFIRM";
+  var inviteTextB = "\n\nQUERIES: @Darragh_ii / @ii.galway\nEMAIL: ii.collectivegalway@gmail.com";
+
+  var inputArea = document.getElementById('invite-input-area');
+  var submitBtn = document.getElementById('invite-submit');
+  var confirmEl = document.getElementById('invite-confirm');
+  var availEl   = document.getElementById('invite-availability');
+
+  submitBtn.addEventListener('mouseover', function(){ submitBtn.style.background = '#256b38'; });
+  submitBtn.addEventListener('mouseout',  function(){ submitBtn.style.background = '#1a5c2a'; });
+
+  var inviteShown = false;
+
+  function showFullForm() {
+    frmText.innerHTML = inviteTextA + inviteTextB;
+    var cursor = document.createElement('span');
+    cursor.className = 'inv-cursor';
+    frmText.appendChild(cursor);
+    frmText.appendChild(inputArea);
+    inputArea.style.display = 'block';
+    inviteShown = true;
+  }
+
+  function openInviteForm() {
+    if (!inviteShown) showFullForm();
+    frm.style.display = 'flex';
+
+    // Project TV position to stage screen coords for transform-origin
+    var tvOriginX = '50%', tvOriginY = '50%';
+    if (window._three_models && window._three_models['tv'] && window._three_camera && window._three_stage) {
+      var tvPos = new THREE.Vector3();
+      window._three_models['tv'].getWorldPosition(tvPos);
+      tvPos.project(window._three_camera);
+      var sr = window._three_stage.getBoundingClientRect();
+      var sx = (tvPos.x * 0.5 + 0.5) * sr.width;
+      var sy = (-tvPos.y * 0.5 + 0.5) * sr.height;
+      var fr = frm.getBoundingClientRect();
+      tvOriginX = (sx - fr.left) + 'px';
+      tvOriginY = (sy - fr.top) + 'px';
+    }
+
+    frm.style.transformOrigin = tvOriginX + ' ' + tvOriginY;
+    frm.style.transition = 'none';
+    frm.style.transform = 'translate(-50%,-50%) scale(0.01)';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        frm.style.transition = 'transform 0.45s cubic-bezier(0.16,1,0.3,1)';
+        frm.style.transform = 'translate(-50%,-50%) scale(1)';
+      });
+    });
+  }
+
+  submitBtn.addEventListener('click', function(){
+    if (!availEl.value.trim()) {
+      availEl.style.borderColor = '#8b2020';
+      setTimeout(function(){ availEl.style.borderColor = '#1a5c2a'; }, 1200);
+      return;
+    }
+    submitBtn.disabled = true;
+    fetch('https://formspree.io/f/xqeodnaq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ availability: availEl.value })
+    }).then(function(r) {
+      submitBtn.style.display = 'none';
+      availEl.style.display   = 'none';
+      confirmEl.style.display = 'block';
+    }).catch(function() {
+      submitBtn.disabled = false;
+      availEl.style.borderColor = '#8b2020';
+      setTimeout(function(){ availEl.style.borderColor = '#1a5c2a'; }, 1500);
+    });
+  });
+
+  function closeInviteForm() {
+    if (invTypingTimer) { clearTimeout(invTypingTimer); invTypingTimer = null; }
+    frm.style.display = 'none';
+  }
+
+  if (frmClose) frmClose.addEventListener('click', closeInviteForm);
+  // Click background while typing = skip to full form, not close
+  frm.addEventListener('click', function(e){
+    if (e.target !== frm) return;
+    if (!inviteShown) { showFullForm(); } else { closeInviteForm(); }
+  });
+
+
+  // ── Form resize — locked to screen centre, symmetric expansion ───────────
+  frm.style.position  = 'fixed';
+  frm.style.left      = '50%';
+  frm.style.top       = '50%';
+  frm.style.transform = 'translate(-50%,-50%)';
+
+  var frmAction = null;
+
+  frm.addEventListener('mousedown', function(e) {
+    var dir = e.target.dataset.dir;
+    if (!dir) return;
+    e.stopPropagation(); e.preventDefault();
+    frmAction = { dir: dir, startX: e.clientX, startY: e.clientY, startW: frm.offsetWidth, startH: frm.offsetHeight };
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (!frmAction) return;
+    var dx = e.clientX - frmAction.startX, dy = e.clientY - frmAction.startY;
+    var d = frmAction.dir;
+    if (d.includes('e')) frm.style.width  = Math.max(100, frmAction.startW + dx * 2) + 'px';
+    if (d.includes('w')) frm.style.width  = Math.max(100, frmAction.startW - dx * 2) + 'px';
+    if (d.includes('s')) frm.style.height = Math.max(60,  frmAction.startH + dy * 2) + 'px';
+    if (d.includes('n')) frm.style.height = Math.max(60,  frmAction.startH - dy * 2) + 'px';
+  }, true);
+
+  window.addEventListener('mouseup', function() { frmAction = null; }, true);
+
+  // ── Smiley Y-drag ────────────────────────────────────────────────────────
+  var smileyWrap = document.getElementById('smiley-wrap');
+  var smileyDrag = null;
+  try { var ss = localStorage.getItem('tv-smiley-y'); if (ss) smileyWrap.style.top = ss; } catch(e) {}
+
+  smileyWrap.addEventListener('mousedown', function(e) {
+    e.stopPropagation(); e.preventDefault();
+    smileyDrag = { startY: e.clientY, startTop: parseInt(smileyWrap.style.top) || 0 };
+  });
+  window.addEventListener('mousemove', function(e) {
+    if (!smileyDrag) return;
+    smileyWrap.style.top = (smileyDrag.startTop + e.clientY - smileyDrag.startY) + 'px';
+  });
+  window.addEventListener('mouseup', function() {
+    if (!smileyDrag) return;
+    localStorage.setItem('tv-smiley-y', smileyWrap.style.top);
+    smileyDrag = null;
+  });
+});
+</script>
+
+<div id="panel">
+  <h2>Scene Builder</h2>
+  <button id="undo-btn" onclick="undoState()" style="width:100%;margin-bottom:12px;background:none;border:1px solid #333;color:#555;font-family:monospace;font-size:10px;letter-spacing:0.2em;padding:6px;border-radius:3px;cursor:pointer;" onmouseover="this.style.borderColor='#00ff60';this.style.color='#00ff60'" onmouseout="this.style.borderColor='#333';this.style.color='#555'">↩ undo</button>
+  <button id="rec-btn" style="width:100%;margin-bottom:12px;background:none;border:1px solid #333;color:#555;font-family:monospace;font-size:10px;letter-spacing:0.2em;padding:6px;border-radius:3px;cursor:pointer;" onmouseover="this.style.borderColor='#ff4040';this.style.color='#ff4040'" onmouseout="if(!window._recActive){this.style.borderColor='#333';this.style.color='#555';}">⏺ record canvas</button>
+
+
+  <div class="section">
+    <div class="section-title">Invite Label</div>
+    <div class="row"><label>Size</label><input type="range" id="lbl-size" min="8" max="60" step="1" value="13"><span class="val" id="lbl-size-v">13</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Background</div>
+    <div class="row">
+      <label>Colour</label>
+      <input type="color" id="bg-color" value="#111111">
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">TV</div>
+    <div class="row"><label>Scale</label><input type="range" id="tv-scale" min="0.05" max="5" step="0.01" value="1"><span class="val" id="tv-scale-v">1</span></div>
+    <div class="row"><label>X</label><input type="range" id="tv-x" min="-5" max="5" step="0.01" value="0"><span class="val" id="tv-x-v">0</span></div>
+    <div class="row"><label>Y</label><input type="range" id="tv-y" min="-4" max="4" step="0.01" value="0"><span class="val" id="tv-y-v">0</span></div>
+    <div class="row"><label>Z</label><input type="range" id="tv-z" min="-5" max="5" step="0.01" value="0"><span class="val" id="tv-z-v">0</span></div>
+    <div class="row"><label>Rot Y</label><input type="range" id="tv-ry" min="-180" max="180" step="1" value="0"><span class="val" id="tv-ry-v">0°</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Table</div>
+    <div class="row"><label>Scale</label><input type="range" id="table-scale" min="0.05" max="5" step="0.01" value="1"><span class="val" id="table-scale-v">1</span></div>
+    <div class="row"><label>X</label><input type="range" id="table-x" min="-5" max="5" step="0.01" value="0"><span class="val" id="table-x-v">0</span></div>
+    <div class="row"><label>Y</label><input type="range" id="table-y" min="-4" max="4" step="0.01" value="0"><span class="val" id="table-y-v">0</span></div>
+    <div class="row"><label>Z</label><input type="range" id="table-z" min="-5" max="5" step="0.01" value="0"><span class="val" id="table-z-v">0</span></div>
+    <div class="row"><label>Rot Y</label><input type="range" id="table-ry" min="-180" max="180" step="1" value="0"><span class="val" id="table-ry-v">0°</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Container</div>
+    <div class="row"><label>Scale</label><input type="range" id="con-scale" min="0.05" max="5" step="0.01" value="1"><span class="val" id="con-scale-v">1</span></div>
+    <div class="row"><label>X</label><input type="range" id="con-x" min="-5" max="5" step="0.01" value="0"><span class="val" id="con-x-v">0</span></div>
+    <div class="row"><label>Y</label><input type="range" id="con-y" min="-4" max="4" step="0.01" value="0"><span class="val" id="con-y-v">0</span></div>
+    <div class="row"><label>Z</label><input type="range" id="con-z" min="-5" max="5" step="0.01" value="0"><span class="val" id="con-z-v">0</span></div>
+    <div class="row"><label>Rot Y</label><input type="range" id="con-ry" min="-180" max="180" step="1" value="0"><span class="val" id="con-ry-v">0°</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Screen</div>
+    <div class="row">
+      <label style="width:auto;flex:1;color:#555;font-size:10px;">Video file</label>
+      <input type="file" id="screen-video-file" accept="video/*" style="display:none">
+      <button onclick="document.getElementById('screen-video-file').click()" style="background:none;border:1px solid #333;color:#555;font-family:monospace;font-size:9px;padding:2px 7px;cursor:pointer;border-radius:2px;" onmouseover="this.style.borderColor='#00ff60';this.style.color='#00ff60'" onmouseout="this.style.borderColor='#333';this.style.color='#555'">load</button>
+    </div>
+    <div class="row"><span id="scr-file-label" style="color:#333;font-size:9px;font-style:italic;">no file</span></div>
+    <div class="row"><label>Scale</label><input type="range" id="scr-scale" min="0.05" max="5" step="0.01" value="1"><span class="val" id="scr-scale-v">1</span></div>
+    <div class="row"><label>W</label><input type="range" id="scr-w" min="0.1" max="4" step="0.01" value="1.6"><span class="val" id="scr-w-v">1.6</span></div>
+    <div class="row"><label>H</label><input type="range" id="scr-h" min="0.1" max="4" step="0.01" value="1.2"><span class="val" id="scr-h-v">1.2</span></div>
+    <div class="row"><label>X</label><input type="range" id="scr-x" min="-5" max="5" step="0.01" value="0"><span class="val" id="scr-x-v">0</span></div>
+    <div class="row"><label>Y</label><input type="range" id="scr-y" min="-4" max="4" step="0.01" value="0"><span class="val" id="scr-y-v">0</span></div>
+    <div class="row"><label>Z</label><input type="range" id="scr-z" min="-5" max="5" step="0.01" value="0"><span class="val" id="scr-z-v">0</span></div>
+    <div class="row"><label>Rot Y</label><input type="range" id="scr-ry" min="-180" max="180" step="1" value="0"><span class="val" id="scr-ry-v">0°</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Screen Filters</div>
+    <div class="row"><label>Exposure</label><input type="range" id="sf-exp" min="-3" max="3" step="0.01" value="0"><span class="val" id="sf-exp-v">0</span></div>
+    <div class="row"><label>Brightness</label><input type="range" id="sf-bri" min="-1" max="1" step="0.01" value="0"><span class="val" id="sf-bri-v">0</span></div>
+    <div class="row"><label>Contrast</label><input type="range" id="sf-con" min="-1" max="1" step="0.01" value="0"><span class="val" id="sf-con-v">0</span></div>
+    <div class="row"><label>Gamma</label><input type="range" id="sf-gamma" min="0.2" max="3" step="0.01" value="1"><span class="val" id="sf-gamma-v">1</span></div>
+    <div class="row"><label>Lift</label><input type="range" id="sf-lift" min="-0.5" max="0.5" step="0.01" value="0"><span class="val" id="sf-lift-v">0</span></div>
+    <div class="row"><label>Gain</label><input type="range" id="sf-gain" min="0.5" max="2" step="0.01" value="1"><span class="val" id="sf-gain-v">1</span></div>
+    <div class="row"><label>Saturation</label><input type="range" id="sf-sat" min="-1" max="1" step="0.01" value="0"><span class="val" id="sf-sat-v">0</span></div>
+    <div class="row"><label>Hue</label><input type="range" id="sf-hue" min="-180" max="180" step="1" value="0"><span class="val" id="sf-hue-v">0°</span></div>
+    <div class="row"><label>Warmth</label><input type="range" id="sf-warm" min="-1" max="1" step="0.01" value="0"><span class="val" id="sf-warm-v">0</span></div>
+    <div class="row"><label>Tint</label><input type="range" id="sf-tint" min="-1" max="1" step="0.01" value="0"><span class="val" id="sf-tint-v">0</span></div>
+    <div class="row"><label>Sharpness</label><input type="range" id="sf-sharp" min="0" max="1" step="0.01" value="0"><span class="val" id="sf-sharp-v">0</span></div>
+    <div class="row"><label>Vignette</label><input type="range" id="sf-vig" min="0" max="2" step="0.01" value="0"><span class="val" id="sf-vig-v">0</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Clip Planes</div>
+    <!-- X -->
+    <div class="plane-row">
+      <div class="plane-toggle off" id="cx-tog" onclick="togglePlane('x')">✓</div>
+      <span class="plane-label">X</span>
+      <input type="range" id="cx-pos" min="-4" max="4" step="0.01" value="0">
+      <button class="flip-btn" onclick="flipPlane('x')">flip</button>
+    </div>
+    <!-- Y -->
+    <div class="plane-row">
+      <div class="plane-toggle off" id="cy-tog" onclick="togglePlane('y')">✓</div>
+      <span class="plane-label">Y</span>
+      <input type="range" id="cy-pos" min="-4" max="4" step="0.01" value="0">
+      <button class="flip-btn" onclick="flipPlane('y')">flip</button>
+    </div>
+    <!-- Z -->
+    <div class="plane-row">
+      <div class="plane-toggle off" id="cz-tog" onclick="togglePlane('z')">✓</div>
+      <span class="plane-label">Z</span>
+      <input type="range" id="cz-pos" min="-4" max="4" step="0.01" value="0">
+      <button class="flip-btn" onclick="flipPlane('z')">flip</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tone</div>
+    <div class="row"><label>Exposure</label><input type="range" id="f-exp" min="-3" max="3" step="0.01" value="0"><span class="val" id="f-exp-v">0</span></div>
+    <div class="row"><label>Contrast</label><input type="range" id="f-con" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-con-v">0</span></div>
+    <div class="row"><label>Highlights</label><input type="range" id="f-hi" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-hi-v">0</span></div>
+    <div class="row"><label>Shadows</label><input type="range" id="f-sh" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-sh-v">0</span></div>
+    <div class="row"><label>Whites</label><input type="range" id="f-whites" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-whites-v">0</span></div>
+    <div class="row"><label>Blacks</label><input type="range" id="f-blacks" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-blacks-v">0</span></div>
+    <div class="row"><label>Gamma</label><input type="range" id="f-gamma" min="0.2" max="3" step="0.01" value="1"><span class="val" id="f-gamma-v">1</span></div>
+    <div class="row"><label>Lift</label><input type="range" id="f-lift" min="-0.5" max="0.5" step="0.01" value="0"><span class="val" id="f-lift-v">0</span></div>
+    <div class="row"><label>Gain</label><input type="range" id="f-gain" min="0.5" max="2" step="0.01" value="1"><span class="val" id="f-gain-v">1</span></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Curves — R G B</div>
+    <div class="row"><label>R Lift</label><input type="range" id="f-rl" min="-0.3" max="0.3" step="0.01" value="0"><span class="val" id="f-rl-v">0</span></div>
+    <div class="row"><label>R Gamma</label><input type="range" id="f-rg" min="0.3" max="2.5" step="0.01" value="1"><span class="val" id="f-rg-v">1</span></div>
+    <div class="row"><label>R Gain</label><input type="range" id="f-rgain" min="0.5" max="2" step="0.01" value="1"><span class="val" id="f-rgain-v">1</span></div>
+    <div class="row"><label>G Lift</label><input type="range" id="f-gl" min="-0.3" max="0.3" step="0.01" value="0"><span class="val" id="f-gl-v">0</span></div>
+    <div class="row"><label>G Gamma</label><input type="range" id="f-gg" min="0.3" max="2.5" step="0.01" value="1"><span class="val" id="f-gg-v">1</span></div>
+    <div class="row"><label>G Gain</label><input type="range" id="f-ggain" min="0.5" max="2" step="0.01" value="1"><span class="val" id="f-ggain-v">1</span></div>
+    <div class="row"><label>B Lift</label><input type="range" id="f-bl" min="-0.3" max="0.3" step="0.01" value="0"><span class="val" id="f-bl-v">0</span></div>
+    <div class="row"><label>B Gamma</label><input type="range" id="f-bg" min="0.3" max="2.5" step="0.01" value="1"><span class="val" id="f-bg-v">1</span></div>
+    <div class="row"><label>B Gain</label><input type="range" id="f-bgain" min="0.5" max="2" step="0.01" value="1"><span class="val" id="f-bgain-v">1</span></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Colour</div>
+    <div class="row"><label>Saturation</label><input type="range" id="f-sat" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-sat-v">0</span></div>
+    <div class="row"><label>Vibrance</label><input type="range" id="f-vib" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-vib-v">0</span></div>
+    <div class="row"><label>Warmth</label><input type="range" id="f-warm" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-warm-v">0</span></div>
+    <div class="row"><label>Tint</label><input type="range" id="f-tint" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-tint-v">0</span></div>
+    <div class="row"><label>Hue</label><input type="range" id="f-hue" min="-180" max="180" step="1" value="0"><span class="val" id="f-hue-v">0°</span></div>
+    <div class="row"><label>Dehaze</label><input type="range" id="f-dehaze" min="0" max="1" step="0.01" value="0"><span class="val" id="f-dehaze-v">0</span></div>
+    <div class="row"><label>Fade</label><input type="range" id="f-fade" min="0" max="1" step="0.01" value="0"><span class="val" id="f-fade-v">0</span></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Presence</div>
+    <div class="row"><label>Clarity</label><input type="range" id="f-clarity" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-clarity-v">0</span></div>
+    <div class="row"><label>Texture</label><input type="range" id="f-texture" min="-1" max="1" step="0.01" value="0"><span class="val" id="f-texture-v">0</span></div>
+    <div class="row"><label>Sharpness</label><input type="range" id="f-sharp" min="0" max="1" step="0.01" value="0"><span class="val" id="f-sharp-v">0</span></div>
+    <div class="row"><label>Noise red.</label><input type="range" id="f-nr" min="0" max="1" step="0.01" value="0"><span class="val" id="f-nr-v">0</span></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Effects</div>
+    <div class="row"><label>Vignette</label><input type="range" id="f-vig" min="0" max="2" step="0.01" value="0"><span class="val" id="f-vig-v">0</span></div>
+    <div class="row"><label>Vig feather</label><input type="range" id="f-vig-f" min="0.1" max="2" step="0.01" value="1"><span class="val" id="f-vig-f-v">1</span></div>
+    <div class="row"><label>Grain</label><input type="range" id="f-grain" min="0" max="1" step="0.01" value="0"><span class="val" id="f-grain-v">0</span></div>
+    <div class="row"><label>Bloom</label><input type="range" id="f-bloom" min="0" max="2" step="0.01" value="0"><span class="val" id="f-bloom-v">0</span></div>
+    <div class="row"><label>Chroma ab.</label><input type="range" id="f-ca" min="0" max="1" step="0.01" value="0"><span class="val" id="f-ca-v">0</span></div>
+  </div>
+  <div class="section">
+    <div class="section-title">Color Grading</div>
+    <div class="row"><label>Sh col</label><input type="color" id="f-sh-col" value="#000000"></div>
+    <div class="row"><label>Sh blend</label><input type="range" id="f-sh-blend" min="0" max="1" step="0.01" value="0"><span class="val" id="f-sh-blend-v">0</span></div>
+    <div class="row"><label>Mid col</label><input type="color" id="f-mid-col" value="#808080"></div>
+    <div class="row"><label>Mid blend</label><input type="range" id="f-mid-blend" min="0" max="1" step="0.01" value="0"><span class="val" id="f-mid-blend-v">0</span></div>
+    <div class="row"><label>Hi col</label><input type="color" id="f-hi-col" value="#ffffff"></div>
+    <div class="row"><label>Hi blend</label><input type="range" id="f-hi-blend" min="0" max="1" step="0.01" value="0"><span class="val" id="f-hi-blend-v">0</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Night Vision</div>
+    <div class="row"><label>On</label><input type="range" id="nv-on" min="0" max="1" step="1" value="0"><span class="val" id="nv-on-v">off</span></div>
+    <div class="row"><label>IR range</label><input type="range" id="nv-range" min="1" max="60" step="0.5" value="8"><span class="val" id="nv-range-v">8</span></div>
+    <div class="row"><label>IR power</label><input type="range" id="nv-power" min="0" max="50" step="0.5" value="2"><span class="val" id="nv-power-v">2</span></div>
+    <div class="row"><label>Grain</label><input type="range" id="nv-grain" min="0" max="1" step="0.01" value="0.25"><span class="val" id="nv-grain-v">0.25</span></div>
+    <div class="row"><label>Bloom</label><input type="range" id="nv-bloom" min="0" max="2" step="0.01" value="0.6"><span class="val" id="nv-bloom-v">0.6</span></div>
+    <div class="row"><label>Vignette</label><input type="range" id="nv-vig" min="0" max="2" step="0.01" value="0.8"><span class="val" id="nv-vig-v">0.8</span></div>
+    <div class="row"><label>Tint col</label><input type="color" id="nv-tint-col" value="#00ff2d"></div>
+  </div>
+
+
+  <div class="section">
+    <div class="section-title">Camera — Position</div>
+    <div class="row"><label>X</label><input type="range" id="cam-x" min="-10" max="10" step="0.01" value="0"><span class="val" id="cam-x-v">0</span></div>
+    <div class="row"><label>Y</label><input type="range" id="cam-y" min="-5" max="10" step="0.01" value="1"><span class="val" id="cam-y-v">1</span></div>
+    <div class="row"><label>Z</label><input type="range" id="cam-z" min="-10" max="10" step="0.01" value="5"><span class="val" id="cam-z-v">5</span></div>
+    <div class="section-title" style="margin-top:8px">Camera — Look</div>
+    <div class="row"><label>Pan</label><input type="range" id="cam-pan" min="-180" max="180" step="0.5" value="0"><span class="val" id="cam-pan-v">0°</span></div>
+    <div class="row"><label>Tilt</label><input type="range" id="cam-tilt" min="-89" max="89" step="0.5" value="0"><span class="val" id="cam-tilt-v">0°</span></div>
+    <div class="row"><label>FOV</label><input type="range" id="fov" min="20" max="90" step="1" value="45"><span class="val" id="fov-v">45</span></div>
+  </div>
+
+</div>
+
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const W = () => window.innerWidth;
+const H = () => window.innerHeight;
+
+// Fixed aspect ratio "stage" — the 3D view + invite label live inside this
+// letterboxed box so resizing the browser window never reprojects/shifts
+// anything on screen. Percent-based positions stay accurate at any size.
+const FIXED_ASPECT = W() / H();
+
+const stage = document.createElement('div');
+stage.id = 'stage';
+stage.style.position = 'fixed';
+stage.style.top = '0';
+stage.style.left = '0';
+stage.style.overflow = 'hidden';
+stage.style.background = '#000';
+document.body.appendChild(stage);
+
+function layoutStage() {
+  let w = W(), h = H();
+  if (w / h > FIXED_ASPECT) {
+    w = h * FIXED_ASPECT;
+  } else {
+    h = w / FIXED_ASPECT;
+  }
+  stage.style.width  = w + 'px';
+  stage.style.height = h + 'px';
+  stage.style.left = ((W() - w) / 2) + 'px';
+  stage.style.top  = ((H() - h) / 2) + 'px';
+  return { w, h };
+}
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x111111);
+
+const camera = new THREE.PerspectiveCamera(45, FIXED_ASPECT, 0.01, 100);
+camera.position.set(0, 1, 5);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.9;
+renderer.localClippingEnabled = true;
+renderer.domElement.style.pointerEvents = 'none';
+stage.appendChild(renderer.domElement);
+
+const inviteLabelEl = document.getElementById('invite-label');
+if (inviteLabelEl) {
+  inviteLabelEl.style.position = 'absolute';
+  stage.appendChild(inviteLabelEl);
+}
+
+const inviteHitboxEl = document.getElementById('invite-hitbox');
+if (inviteHitboxEl) {
+  // Convert from viewport-fixed px to stage-relative px before reparenting
+  const sr = stage.getBoundingClientRect();
+  const hr = inviteHitboxEl.getBoundingClientRect();
+  inviteHitboxEl.style.position = 'absolute';
+  inviteHitboxEl.style.left = (hr.left - sr.left) + 'px';
+  inviteHitboxEl.style.top  = (hr.top  - sr.top)  + 'px';
+  inviteHitboxEl.style.transform = 'none';
+  stage.appendChild(inviteHitboxEl);
+}
+
+{
+  const { w, h } = layoutStage();
+  renderer.setSize(w, h);
+}
+
+// Free-fly camera state
+const cam = { x: 0, y: 1, z: 5, pan: 0, tilt: 0 };
+
+function applyCamera() {
+  camera.position.set(cam.x, cam.y, cam.z);
+  const panRad = cam.pan * Math.PI / 180;
+  const tiltRad = cam.tilt * Math.PI / 180;
+  const target = new THREE.Vector3(
+    cam.x + Math.sin(panRad) * Math.cos(tiltRad),
+    cam.y + Math.sin(tiltRad),
+    cam.z - Math.cos(panRad) * Math.cos(tiltRad)
+  );
+  camera.lookAt(target);
+}
+
+// Scene lights (fixed values, no panel)
+const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(ambient);
+const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
+keyLight.position.set(3, 4, 3);
+keyLight.castShadow = true;
+scene.add(keyLight);
+const fillLight = new THREE.DirectionalLight(0x8888ff, 0.4);
+fillLight.position.set(-3, 0, -2);
+scene.add(fillLight);
+
+// Clipping planes
+const clipPlanes = {
+  x: new THREE.Plane(new THREE.Vector3(1, 0, 0), 0),
+  y: new THREE.Plane(new THREE.Vector3(0, 1, 0), 0),
+  z: new THREE.Plane(new THREE.Vector3(0, 0, 1), 0),
+};
+const planeEnabled = { x: false, y: false, z: false };
+const planeFlipped = { x: 1, y: 1, z: 1 };
+
+function updateClipping() {
+  const active = Object.entries(planeEnabled)
+    .filter(([,on]) => on)
+    .map(([ax]) => clipPlanes[ax]);
+  renderer.clippingPlanes = active;
+}
+
+window.togglePlane = (ax) => {
+  planeEnabled[ax] = !planeEnabled[ax];
+  const tog = document.getElementById(`c${ax}-tog`);
+  tog.classList.toggle('off', !planeEnabled[ax]);
+  updateClipping();
+};
+
+window.flipPlane = (ax) => {
+  planeFlipped[ax] *= -1;
+  const normals = { x: new THREE.Vector3(1,0,0), y: new THREE.Vector3(0,1,0), z: new THREE.Vector3(0,0,1) };
+  clipPlanes[ax].normal.copy(normals[ax]).multiplyScalar(planeFlipped[ax]);
+  updateClipping();
+};
+
+['x','y','z'].forEach(ax => {
+  document.getElementById(`c${ax}-pos`).addEventListener('input', (e) => {
+    clipPlanes[ax].constant = -Number(e.target.value) * planeFlipped[ax];
+  });
+});
+
+// Load models
+const models = { tv: null, table: null, con: null };
+window._three_models = models;
+window._three_camera = camera;
+window._three_stage  = stage;
+window.THREE = THREE;
+
+// Screen plane
+const screenVideo = document.createElement('video');
+screenVideo.loop = true;
+screenVideo.muted = true;
+screenVideo.playsInline = true;
+screenVideo.setAttribute('playsinline', '');
+screenVideo.setAttribute('muted', '');
+screenVideo.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;';
+document.body.appendChild(screenVideo);
+const screenTex = new THREE.VideoTexture(screenVideo);
+screenTex.minFilter = THREE.LinearFilter;
+
+const screenMat = new THREE.ShaderMaterial({
+  side: THREE.DoubleSide,
+  uniforms: {
+    tVideo: { value: screenTex },
+    uSExp:   { value: 0 }, uSCon:  { value: 0 },
+    uSBri:   { value: 0 }, uSSat:  { value: 0 },
+    uSHue:   { value: 0 }, uSWarm: { value: 0 },
+    uSTint:  { value: 0 }, uSGamma:{ value: 1 },
+    uSLift:  { value: 0 }, uSGain: { value: 1 },
+    uSSharp: { value: 0 }, uSVig:  { value: 0 },
+  },
+  vertexShader: `
+    varying vec2 vUv;
+    void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }
+  `,
+  fragmentShader: `
+    uniform sampler2D tVideo;
+    uniform float uSExp,uSCon,uSBri,uSSat,uSHue,uSWarm,uSTint,uSGamma,uSLift,uSGain,uSSharp,uSVig;
+    varying vec2 vUv;
+    float luma(vec3 c){ return dot(c,vec3(0.2126,0.7152,0.0722)); }
+    vec3 rgb2hsl(vec3 c){
+      float mx=max(c.r,max(c.g,c.b)),mn=min(c.r,min(c.g,c.b)),d=mx-mn;
+      float h=0.,s=0.,l=(mx+mn)/2.;
+      if(d>0.){
+        s=d/(1.-abs(2.*l-1.));
+        if(mx==c.r) h=mod((c.g-c.b)/d,6.);
+        else if(mx==c.g) h=(c.b-c.r)/d+2.;
+        else h=(c.r-c.g)/d+4.;
+        h/=6.;
+      }
+      return vec3(h,s,l);
+    }
+    vec3 hsl2rgb(vec3 c){
+      float C=(1.-abs(2.*c.z-1.))*c.y,X=C*(1.-abs(mod(c.x*6.,2.)-1.)),m=c.z-C/2.;
+      vec3 r=vec3(0.);
+      float h=c.x*6.;
+      if(h<1.) r=vec3(C,X,0.);
+      else if(h<2.) r=vec3(X,C,0.);
+      else if(h<3.) r=vec3(0.,C,X);
+      else if(h<4.) r=vec3(0.,X,C);
+      else if(h<5.) r=vec3(X,0.,C);
+      else r=vec3(C,0.,X);
+      return r+m;
+    }
+    void main(){
+      vec3 c = texture2D(tVideo, vUv).rgb;
+      // Exposure
+      c *= pow(2.0, uSExp);
+      // Brightness
+      c = clamp(c + uSBri, 0., 1.);
+      // Contrast
+      c = clamp((c - 0.5) * (1.0 + uSCon) + 0.5, 0., 1.);
+      // Lift / Gamma / Gain
+      c = pow(clamp(c * uSGain + uSLift, 0., 1.), vec3(1.0 / max(uSGamma, 0.01)));
+      // Saturation
+      c = mix(vec3(luma(c)), c, 1.0 + uSSat);
+      // Hue
+      if(abs(uSHue) > 0.001){
+        vec3 h = rgb2hsl(c);
+        h.x = mod(h.x + uSHue / 360.0, 1.0);
+        c = hsl2rgb(h);
+      }
+      // Warmth + Tint
+      c.r += uSWarm * 0.12; c.b -= uSWarm * 0.12;
+      c.g += uSTint * 0.08;
+      // Sharpness (simple unsharp)
+      if(uSSharp > 0.001){
+        vec2 px = vec2(1.0/1920.0, 1.0/1080.0);
+        vec3 blur = (
+          texture2D(tVideo,vUv+vec2(-px.x,-px.y)).rgb +
+          texture2D(tVideo,vUv+vec2( px.x,-px.y)).rgb +
+          texture2D(tVideo,vUv+vec2(-px.x, px.y)).rgb +
+          texture2D(tVideo,vUv+vec2( px.x, px.y)).rgb
+        ) * 0.25;
+        c += (c - blur) * uSSharp * 3.0;
+      }
+      // Vignette
+      if(uSVig > 0.001){
+        vec2 uv2 = vUv * 2.0 - 1.0;
+        c *= 1.0 - uSVig * dot(uv2, uv2) * 0.5;
+      }
+      gl_FragColor = vec4(clamp(c,0.,1.), 1.0);
+    }
+  `
+});
+const screenGeo = new THREE.PlaneGeometry(1.6, 1.2);
+const screenMesh = new THREE.Mesh(screenGeo, screenMat);
+screenMesh.visible = false;
+// Separate scene so the video plane bypasses all post-processing
+const screenScene = new THREE.Scene();
+screenScene.add(screenMesh);
+
+// IndexedDB for video persistence
+const DB_NAME = 'tv-scene-db', DB_STORE = 'blobs', DB_KEY = 'screen-video';
+function openDB() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open(DB_NAME, 1);
+    r.onupgradeneeded = e => e.target.result.createObjectStore(DB_STORE);
+    r.onsuccess = e => res(e.target.result);
+    r.onerror = e => rej(e);
+  });
+}
+async function saveVideoBlob(blob) {
+  const db = await openDB();
+  const tx = db.transaction(DB_STORE, 'readwrite');
+  tx.objectStore(DB_STORE).put(blob, DB_KEY);
+}
+async function loadVideoBlob() {
+  const db = await openDB();
+  return new Promise((res) => {
+    const tx = db.transaction(DB_STORE, 'readonly');
+    const req = tx.objectStore(DB_STORE).get(DB_KEY);
+    req.onsuccess = e => res(e.target.result || null);
+    req.onerror = () => res(null);
+  });
+}
+
+function loadVideoFromBlob(blob, name) {
+  const url = URL.createObjectURL(blob);
+  screenVideo.src = url;
+  screenVideo.play();
+  screenMesh.visible = true;
+  const lbl = document.getElementById('scr-file-label');
+  if (lbl) lbl.textContent = name || 'loaded';
+}
+
+document.getElementById('screen-video-file').addEventListener('change', async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  await saveVideoBlob(file);
+  loadVideoFromBlob(file, file.name);
+});
+
+// Load screen.mp4 immediately — don't wait for IndexedDB
+screenVideo.src = './screen.mp4';
+screenMesh.visible = true;
+screenVideo.play().catch(() => {
+  const resume = () => { screenVideo.play(); document.removeEventListener('touchstart', resume); document.removeEventListener('click', resume); };
+  document.addEventListener('touchstart', resume, { once: true });
+  document.addEventListener('click', resume, { once: true });
+});
+
+// Override with saved video from IndexedDB if one exists
+loadVideoBlob().then(blob => {
+  if (blob) loadVideoFromBlob(blob, 'saved video');
+}).catch(() => {});
+
+function applyScreenGeometry() {
+  const w = Number(document.getElementById('scr-w').value);
+  const h = Number(document.getElementById('scr-h').value);
+  screenMesh.geometry.dispose();
+  screenMesh.geometry = new THREE.PlaneGeometry(w, h);
+}
+
+function loadModel(path, key, defaultSize) {
+  new GLTFLoader().load(path, (gltf) => {
+    const m = gltf.scene;
+    const box = new THREE.Box3().setFromObject(m);
+    const centre = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const s = defaultSize / Math.max(size.x, size.y, size.z);
+    // Centre first, then apply saved state on top
+    m.scale.setScalar(s);
+    m.position.sub(centre.multiplyScalar(s));
+    m.traverse(c => {
+      if (c.isMesh) {
+        c.castShadow = true;
+        c.receiveShadow = true;
+        const mats = Array.isArray(c.material) ? c.material : [c.material];
+        mats.forEach(mat => {
+          if (!mat) return;
+          // PBR materials
+          if ('roughness' in mat) { mat.roughness = 1.0; mat.metalness = 0.0; }
+          // Phong / Lambert — kill specular completely
+          if ('shininess' in mat) mat.shininess = 0;
+          if ('specular' in mat) mat.specular.set(0, 0, 0);
+          if ('reflectivity' in mat) mat.reflectivity = 0;
+          if ('envMapIntensity' in mat) mat.envMapIntensity = 0;
+          mat.clippingPlanes = [];
+          mat.clipIntersection = false;
+          mat.needsUpdate = true;
+        });
+      }
+    });
+    scene.add(m);
+    models[key] = m;
+    applyModelState(m, key);
+    _onModelLoaded();
+  }, undefined, e => { console.warn(path, e); _onModelLoaded(); });
+}
+
+// Apply saved slider values to a model after it loads
+function applyModelState(m, prefix) {
+  const scale = Number(document.getElementById(`${prefix}-scale`).value);
+  const x = Number(document.getElementById(`${prefix}-x`).value);
+  const y = Number(document.getElementById(`${prefix}-y`).value);
+  const z = Number(document.getElementById(`${prefix}-z`).value);
+  const ry = Number(document.getElementById(`${prefix}-ry`).value);
+  m.scale.setScalar(scale);
+  m.position.set(x, y, z);
+  m.rotation.y = ry * Math.PI / 180;
+}
+
+// Apply saved clip plane positions + state
+function applyClipState() {
+  ['x','y','z'].forEach(ax => {
+    const pos = Number(document.getElementById(`c${ax}-pos`).value);
+    clipPlanes[ax].constant = -pos * planeFlipped[ax];
+  });
+  updateClipping();
+}
+
+// Hide canvas until all 3 models loaded, then reveal instantly
+renderer.domElement.style.opacity = '0';
+
+// Eye-open curtains
+const _eyeTop = document.createElement('div');
+const _eyeBot = document.createElement('div');
+[_eyeTop, _eyeBot].forEach(el => {
+  el.style.cssText = 'position:absolute;left:0;width:100%;height:55%;background:#000;z-index:9000;transition:transform 1.4s cubic-bezier(0.76,0,0.24,1);pointer-events:none;';
+});
+_eyeTop.style.top = '0';
+_eyeBot.style.bottom = '0';
+stage.appendChild(_eyeTop);
+stage.appendChild(_eyeBot);
+
+let _loadedCount = 0;
+function _onModelLoaded() {
+  if (++_loadedCount < 3) return;
+  renderer.domElement.style.opacity = '1';
+
+  const cvs = renderer.domElement;
+  cvs.style.transition = 'filter 0.6s ease';
+  cvs.style.filter = 'blur(8px)';
+
+  const open  = (spd) => { _eyeTop.style.transition = _eyeBot.style.transition = `transform ${spd}s cubic-bezier(0.76,0,0.24,1)`; _eyeTop.style.transform = 'translateY(-100%)'; _eyeBot.style.transform = 'translateY(100%)'; };
+  const close = ()     => { _eyeTop.style.transition = _eyeBot.style.transition = 'transform 0.18s ease-in'; _eyeTop.style.transform = 'translateY(0)'; _eyeBot.style.transform = 'translateY(0)'; };
+
+  const basePan = cam.pan;
+
+  // Single smooth arc: start → left → right → centre, no velocity breaks
+  function animatePanArc(onDone) {
+    const keys = [
+      { t: 0.00, p: basePan },
+      { t: 0.33, p: basePan - 50 },
+      { t: 0.67, p: basePan + 50 },
+      { t: 1.00, p: basePan }
+    ];
+    const totalDur = 4200;
+    const start = performance.now();
+    // catmull-rom through keyframes
+    function hermite(p0, p1, p2, p3, t) {
+      const m0 = (p2 - p0) * 0.5, m1 = (p3 - p1) * 0.5;
+      const t2 = t*t, t3 = t2*t;
+      return (2*t3 - 3*t2 + 1)*p1 + (t3 - 2*t2 + t)*m0 + (-2*t3 + 3*t2)*p2 + (t3 - t2)*m1;
+    }
+    (function tick(now) {
+      const g = Math.min((now - start) / totalDur, 1);
+      // find segment
+      let seg = 0;
+      for (let i = 0; i < keys.length - 2; i++) if (g >= keys[i+1].t) seg = i+1;
+      seg = Math.min(seg, keys.length - 2);
+      const k0 = keys[Math.max(seg-1,0)], k1 = keys[seg], k2 = keys[seg+1], k3 = keys[Math.min(seg+2, keys.length-1)];
+      const lt = (g - k1.t) / (k2.t - k1.t);
+      cam.pan = hermite(k0.p, k1.p, k2.p, k3.p, Math.max(0, Math.min(1, lt)));
+      applyCamera();
+      if (g < 1) requestAnimationFrame(tick); else { cam.pan = basePan; applyCamera(); if (onDone) onDone(); }
+    })(start);
+  }
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    // open blurry, head starts turning left
+    open(1.6);
+    animatePanArc(() => {
+      const l = document.getElementById('invite-label'); if(l) l.style.opacity = '1';
+    });
+
+    // double blink during left turn — blur steps down each time
+    setTimeout(() => {
+      close();
+      setTimeout(() => {
+        cvs.style.filter = 'blur(4px)';   // first blink clears some
+        open(0.7);
+        setTimeout(() => {
+          close();
+          setTimeout(() => {
+            cvs.style.filter = 'none';     // second blink clears fully
+            open(1.1);
+            setTimeout(() => { _eyeTop.remove(); _eyeBot.remove(); }, 850);
+          }, 105);
+        }, 420);
+      }, 105);
+    }, 700);
+  }));
+}
+
+loadModel('./crt_tv_s.glb', 'tv', 2);
+loadModel('./table_s.glb', 'table', 2);
+loadModel('./con_s.glb', 'con', 2);
+
+// Undo history
+const history = [];
+function pushHistory() {
+  const raw = localStorage.getItem(LS);
+  if (raw) history.push(raw);
+  if (history.length > 50) history.shift();
+}
+
+window.undoState = function() {
+  if (history.length === 0) return;
+  const prev = history.pop();
+  localStorage.setItem(LS, prev);
+  location.reload();
+};
+
+// localStorage persistence
+const LS = 'tv-scene-v1';
+
+const ALL_IDS = [
+  'bg-color',
+  'tv-scale','tv-x','tv-y','tv-z','tv-ry',
+  'table-scale','table-x','table-y','table-z','table-ry',
+  'con-scale','con-x','con-y','con-z','con-ry',
+  'scr-scale','scr-w','scr-h','scr-x','scr-y','scr-z','scr-ry',
+  'sf-exp','sf-bri','sf-con','sf-gamma','sf-lift','sf-gain','sf-sat','sf-hue','sf-warm','sf-tint','sf-sharp','sf-vig',
+  'cx-pos','cy-pos','cz-pos',
+  'cam-x','cam-y','cam-z','cam-pan','cam-tilt','fov',
+  'nv-on','nv-range','nv-power','nv-grain','nv-bloom','nv-vig','nv-tint-col',
+  // Tone
+  'f-exp','f-con','f-hi','f-sh','f-whites','f-blacks','f-gamma','f-lift','f-gain',
+  // Curves
+  'f-rl','f-rg','f-rgain','f-gl','f-gg','f-ggain','f-bl','f-bg','f-bgain',
+  // Colour
+  'f-sat','f-vib','f-warm','f-tint','f-hue','f-dehaze','f-fade',
+  // Presence
+  'f-clarity','f-texture','f-sharp','f-nr',
+  // Effects
+  'f-vig','f-vig-f','f-grain','f-bloom','f-ca',
+  // Color Grading
+  'f-sh-col','f-sh-blend','f-mid-col','f-mid-blend','f-hi-col','f-hi-blend'
+];
+
+const DEG_IDS = new Set(['tv-ry','table-ry','con-ry','scr-ry','cam-pan','cam-tilt','f-hue','sf-hue']);
+
+function saveState() {
+  pushHistory();
+  const state = {};
+  ALL_IDS.forEach(id => { state[id] = document.getElementById(id).value; });
+  state.planeEnabled = { ...planeEnabled };
+  state.planeFlipped = { ...planeFlipped };
+  localStorage.setItem(LS, JSON.stringify(state));
+}
+
+function loadState() {
+  const raw = localStorage.getItem(LS);
+  if (!raw) return;
+  try {
+    const s = JSON.parse(raw);
+    ALL_IDS.forEach(id => {
+      if (s[id] === undefined) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = s[id];
+      const vEl = document.getElementById(id + '-v');
+      if (vEl) vEl.textContent = s[id] + (DEG_IDS.has(id) ? '°' : '');
+    });
+    if (s.planeEnabled) {
+      ['x','y','z'].forEach(ax => {
+        planeEnabled[ax] = s.planeEnabled[ax];
+        document.getElementById(`c${ax}-tog`).classList.toggle('off', !planeEnabled[ax]);
+      });
+    }
+    if (s.planeFlipped) {
+      ['x','y','z'].forEach(ax => { planeFlipped[ax] = s.planeFlipped[ax]; });
+    }
+    return s;
+  } catch(e) { return null; }
+}
+
+// Bind helpers — saves state on every change
+function bind(id, valId, suffix, fn) {
+  const el = document.getElementById(id);
+  const vEl = valId ? document.getElementById(valId) : null;
+  el.addEventListener('input', () => {
+    if (vEl) vEl.textContent = el.value + (suffix || '');
+    fn(Number(el.value));
+    saveState();
+  });
+}
+
+document.getElementById('bg-color').addEventListener('input', e => { scene.background.set(e.target.value); saveState(); });
+
+// TV
+bind('tv-scale', 'tv-scale-v', '', v => { if (models.tv) models.tv.scale.setScalar(v); });
+bind('tv-x', 'tv-x-v', '', v => { if (models.tv) models.tv.position.x = v; });
+bind('tv-y', 'tv-y-v', '', v => { if (models.tv) models.tv.position.y = v; });
+bind('tv-z', 'tv-z-v', '', v => { if (models.tv) models.tv.position.z = v; });
+bind('tv-ry', 'tv-ry-v', '°', v => { if (models.tv) models.tv.rotation.y = v * Math.PI / 180; });
+
+// Table
+bind('table-scale', 'table-scale-v', '', v => { if (models.table) models.table.scale.setScalar(v); });
+bind('table-x', 'table-x-v', '', v => { if (models.table) models.table.position.x = v; });
+bind('table-y', 'table-y-v', '', v => { if (models.table) models.table.position.y = v; });
+bind('table-z', 'table-z-v', '', v => { if (models.table) models.table.position.z = v; });
+bind('table-ry', 'table-ry-v', '°', v => { if (models.table) models.table.rotation.y = v * Math.PI / 180; });
+
+// Container
+bind('con-scale', 'con-scale-v', '', v => { if (models.con) models.con.scale.setScalar(v); });
+bind('con-x', 'con-x-v', '', v => { if (models.con) models.con.position.x = v; });
+bind('con-y', 'con-y-v', '', v => { if (models.con) models.con.position.y = v; });
+bind('con-z', 'con-z-v', '', v => { if (models.con) models.con.position.z = v; });
+bind('con-ry', 'con-ry-v', '°', v => { if (models.con) models.con.rotation.y = v * Math.PI / 180; });
+
+// Screen plane
+bind('scr-scale', 'scr-scale-v', '', v => { screenMesh.scale.setScalar(v); });
+bind('scr-w', 'scr-w-v', '', v => { applyScreenGeometry(); });
+bind('scr-h', 'scr-h-v', '', v => { applyScreenGeometry(); });
+bind('scr-x', 'scr-x-v', '', v => { screenMesh.position.x = v; });
+bind('scr-y', 'scr-y-v', '', v => { screenMesh.position.y = v; });
+bind('scr-z', 'scr-z-v', '', v => { screenMesh.position.z = v; });
+bind('scr-ry', 'scr-ry-v', '°', v => { screenMesh.rotation.y = v * Math.PI / 180; });
+
+// Screen filters
+bind('sf-exp',   'sf-exp-v',   '', v => { screenMat.uniforms.uSExp.value   = v; });
+bind('sf-bri',   'sf-bri-v',   '', v => { screenMat.uniforms.uSBri.value   = v; });
+bind('sf-con',   'sf-con-v',   '', v => { screenMat.uniforms.uSCon.value   = v; });
+bind('sf-gamma', 'sf-gamma-v', '', v => { screenMat.uniforms.uSGamma.value = v; });
+bind('sf-lift',  'sf-lift-v',  '', v => { screenMat.uniforms.uSLift.value  = v; });
+bind('sf-gain',  'sf-gain-v',  '', v => { screenMat.uniforms.uSGain.value  = v; });
+bind('sf-sat',   'sf-sat-v',   '', v => { screenMat.uniforms.uSSat.value   = v; });
+bind('sf-hue',   'sf-hue-v',   '°',v => { screenMat.uniforms.uSHue.value  = v; });
+bind('sf-warm',  'sf-warm-v',  '', v => { screenMat.uniforms.uSWarm.value  = v; });
+bind('sf-tint',  'sf-tint-v',  '', v => { screenMat.uniforms.uSTint.value  = v; });
+bind('sf-sharp', 'sf-sharp-v', '', v => { screenMat.uniforms.uSSharp.value = v; });
+bind('sf-vig',   'sf-vig-v',   '', v => { screenMat.uniforms.uSVig.value   = v; });
+
+// Camera
+bind('cam-x', 'cam-x-v', '', v => { cam.x = v; applyCamera(); });
+bind('cam-y', 'cam-y-v', '', v => { cam.y = v; applyCamera(); });
+bind('cam-z', 'cam-z-v', '', v => { cam.z = v; applyCamera(); });
+bind('cam-pan', 'cam-pan-v', '°', v => { cam.pan = v; applyCamera(); });
+bind('cam-tilt', 'cam-tilt-v', '°', v => { cam.tilt = v; applyCamera(); });
+bind('fov', 'fov-v', '', v => { camera.fov = v; camera.updateProjectionMatrix(); });
+
+// Also patch togglePlane/flipPlane to save
+const _origToggle = window.togglePlane;
+window.togglePlane = (ax) => { _origToggle(ax); saveState(); };
+const _origFlip = window.flipPlane;
+window.flipPlane = (ax) => { _origFlip(ax); saveState(); };
+['x','y','z'].forEach(ax => {
+  document.getElementById(`c${ax}-pos`).addEventListener('change', saveState);
+});
+
+// Restore saved state on boot
+loadState();
+scene.background.set(document.getElementById('bg-color').value);
+cam.x = Number(document.getElementById('cam-x').value);
+cam.y = Number(document.getElementById('cam-y').value);
+cam.z = Number(document.getElementById('cam-z').value);
+cam.pan = Number(document.getElementById('cam-pan').value);
+cam.tilt = Number(document.getElementById('cam-tilt').value);
+camera.fov = Number(document.getElementById('fov').value);
+if (window.innerWidth <= 768) camera.fov = 100;
+camera.updateProjectionMatrix();
+applyCamera();
+applyClipState();
+
+// Restore screen filter uniforms from saved state
+[
+  ['sf-exp','uSExp'],['sf-bri','uSBri'],['sf-con','uSCon'],['sf-gamma','uSGamma'],
+  ['sf-lift','uSLift'],['sf-gain','uSGain'],['sf-sat','uSSat'],['sf-hue','uSHue'],
+  ['sf-warm','uSWarm'],['sf-tint','uSTint'],['sf-sharp','uSSharp'],['sf-vig','uSVig'],
+].forEach(([id, u]) => {
+  const el = document.getElementById(id);
+  if (el) screenMat.uniforms[u].value = Number(el.value);
+});
+
+// Restore screen plane position from saved state
+screenMesh.scale.setScalar(Number(document.getElementById('scr-scale').value));
+screenMesh.position.set(
+  Number(document.getElementById('scr-x').value),
+  Number(document.getElementById('scr-y').value),
+  Number(document.getElementById('scr-z').value)
+);
+screenMesh.rotation.y = Number(document.getElementById('scr-ry').value) * Math.PI / 180;
+applyScreenGeometry();
+
+// IR illuminator — spotlight at camera position, pointing in camera direction
+const irLight = new THREE.SpotLight(0xffffff, 0);
+irLight.angle = Math.PI / 2.5;
+irLight.penumbra = 1.0;  // fully soft cone edge
+irLight.decay = 2;       // physical inverse-square falloff
+irLight.distance = 0;    // no hard cutoff — fades naturally
+scene.add(irLight);
+scene.add(irLight.target);
+
+// Night vision post-processing
+const nvState = { on: false, range: 8, power: 2, grain: 0.25, bloom: 0.6, vig: 0.8 };
+
+let renderTarget = new THREE.WebGLRenderTarget(stage.clientWidth, stage.clientHeight);
+
+const nvMaterial = new THREE.ShaderMaterial({
+  uniforms: {
+    tDiffuse: { value: renderTarget.texture },
+    uTime:    { value: 0 },
+    uRes:     { value: new THREE.Vector2(W(), H()) },
+    uNvOn:    { value: 0.0 }, uGrain: { value: 0.25 }, uBloom: { value: 0.6 },
+    uVig:     { value: 0.8 }, uNvTint: { value: new THREE.Vector3(0.15,1.0,0.18) },
+    uExp:{value:0},uCon:{value:0},uHi:{value:0},uSh:{value:0},
+    uWhites:{value:0},uBlacks:{value:0},uGamma:{value:1},uLift:{value:0},uGain:{value:1},
+    uRL:{value:0},uRG:{value:1},uRGain:{value:1},
+    uGL:{value:0},uGG:{value:1},uGGain:{value:1},
+    uBL:{value:0},uBG:{value:1},uBGain:{value:1},
+    uSat:{value:0},uVib:{value:0},uWarm:{value:0},uTint:{value:0},uHue:{value:0},
+    uDehaze:{value:0},uFade:{value:0},
+    uClarity:{value:0},uTexture:{value:0},uSharp:{value:0},uNR:{value:0},
+    uVigF:{value:1},uFGrain:{value:0},uFBloom:{value:0},uCA:{value:0},
+    uShCol:{value:new THREE.Vector3(0,0,0)},uShBlend:{value:0},
+    uMidCol:{value:new THREE.Vector3(0.5,0.5,0.5)},uMidBlend:{value:0},
+    uHiCol:{value:new THREE.Vector3(1,1,1)},uHiBlend:{value:0},
+  },
+  vertexShader: `varying vec2 vUv; void main(){vUv=uv;gl_Position=vec4(position,1.0);}`,
+  fragmentShader: `
+    uniform sampler2D tDiffuse;
+    uniform float uTime,uNvOn,uGrain,uBloom,uVig,uVigF;
+    uniform vec3 uNvTint;
+    uniform float uExp,uCon,uHi,uSh,uWhites,uBlacks,uGamma,uLift,uGain;
+    uniform float uRL,uRG,uRGain,uGL,uGG,uGGain,uBL,uBG,uBGain;
+    uniform float uSat,uVib,uWarm,uTint,uHue,uDehaze,uFade;
+    uniform float uClarity,uTexture,uSharp,uNR,uFGrain,uFBloom,uCA;
+    uniform vec3 uShCol,uMidCol,uHiCol;
+    uniform float uShBlend,uMidBlend,uHiBlend;
+    uniform vec2 uRes;
+    varying vec2 vUv;
+
+    float rand(vec2 co){return fract(sin(dot(co,vec2(12.9898,78.233)))*43758.5453);}
+    float luma(vec3 c){return dot(c,vec3(0.299,0.587,0.114));}
+
+    vec3 rgb2hsl(vec3 c){
+      float mx=max(c.r,max(c.g,c.b)),mn=min(c.r,min(c.g,c.b));
+      float h=0.0,s=0.0,l=(mx+mn)/2.0,d=mx-mn;
+      if(d>0.0){
+        s=d/(1.0-abs(2.0*l-1.0));
+        if(mx==c.r)h=mod((c.g-c.b)/d,6.0);
+        else if(mx==c.g)h=(c.b-c.r)/d+2.0;
+        else h=(c.r-c.g)/d+4.0;
+        h/=6.0;
+      }
+      return vec3(h,s,l);
+    }
+    float h2r(float p,float q,float t){
+      if(t<0.0)t+=1.0;if(t>1.0)t-=1.0;
+      if(t<1.0/6.0)return p+(q-p)*6.0*t;
+      if(t<0.5)return q;
+      if(t<2.0/3.0)return p+(q-p)*(2.0/3.0-t)*6.0;
+      return p;
+    }
+    vec3 hsl2rgb(vec3 hsl){
+      float h=hsl.x,s=hsl.y,l=hsl.z;
+      if(s==0.0)return vec3(l);
+      float q=l<0.5?l*(1.0+s):l+s-l*s,p=2.0*l-q;
+      return vec3(h2r(p,q,h+1.0/3.0),h2r(p,q,h),h2r(p,q,h-1.0/3.0));
+    }
+
+    float applyLiftGammaGain(float v,float lift,float gamma,float gain){
+      v = v*gain + lift;
+      return pow(max(v,0.0),1.0/gamma);
+    }
+
+    void main(){
+      vec2 px = 1.0/uRes;
+      vec3 col;
+
+      // Chromatic aberration
+      if(uCA>0.001){
+        float s=uCA*0.01;
+        col.r=texture2D(tDiffuse,vUv+vec2(s,0)).r;
+        col.g=texture2D(tDiffuse,vUv).g;
+        col.b=texture2D(tDiffuse,vUv-vec2(s,0)).b;
+      } else {
+        col=texture2D(tDiffuse,vUv).rgb;
+      }
+
+      // Noise reduction
+      if(uNR>0.001){
+        vec3 nr=vec3(0.0);
+        for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++)
+          nr+=texture2D(tDiffuse,vUv+vec2(float(x),float(y))*px).rgb;
+        col=mix(col,nr/9.0,uNR*0.85);
+      }
+
+      // Sharpness — 8-tap unsharp mask
+      if(uSharp>0.001){
+        vec3 b=(
+          texture2D(tDiffuse,vUv+vec2(-px.x,-px.y)).rgb+
+          texture2D(tDiffuse,vUv+vec2(0.0,-px.y)).rgb+
+          texture2D(tDiffuse,vUv+vec2(px.x,-px.y)).rgb+
+          texture2D(tDiffuse,vUv+vec2(-px.x,0.0)).rgb+
+          texture2D(tDiffuse,vUv+vec2(px.x,0.0)).rgb+
+          texture2D(tDiffuse,vUv+vec2(-px.x,px.y)).rgb+
+          texture2D(tDiffuse,vUv+vec2(0.0,px.y)).rgb+
+          texture2D(tDiffuse,vUv+vec2(px.x,px.y)).rgb)/8.0;
+        col+=(col-b)*uSharp*5.0;
+      }
+
+      vec3 c=clamp(col,0.0,1.0);
+
+      // Exposure
+      c*=pow(2.0,uExp);
+
+      // Whites / Blacks
+      float wm=smoothstep(0.75,1.0,luma(c));
+      float bm=1.0-smoothstep(0.0,0.25,luma(c));
+      c+=wm*uWhites*0.4;
+      c=mix(c,c+uBlacks*0.4,bm);
+
+      // Highlights / Shadows
+      c+=smoothstep(0.4,1.0,luma(c))*uHi*0.5;
+      c+=( 1.0-smoothstep(0.0,0.6,luma(c)))*uSh*0.5;
+
+      // Contrast S-curve
+      c=(c-0.5)*(1.0+uCon)+0.5;
+
+      // Master Lift / Gamma / Gain
+      c=vec3(
+        applyLiftGammaGain(c.r,uLift,uGamma,uGain),
+        applyLiftGammaGain(c.g,uLift,uGamma,uGain),
+        applyLiftGammaGain(c.b,uLift,uGamma,uGain)
+      );
+
+      // Per-channel Lift / Gamma / Gain
+      c.r=applyLiftGammaGain(c.r,uRL,uRG,uRGain);
+      c.g=applyLiftGammaGain(c.g,uGL,uGG,uGGain);
+      c.b=applyLiftGammaGain(c.b,uBL,uBG,uBGain);
+
+      // Clarity (midtone local contrast)
+      if(abs(uClarity)>0.001){
+        vec2 bp=3.0/uRes;
+        vec3 blur=vec3(0.0);
+        for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++)
+          blur+=texture2D(tDiffuse,vUv+vec2(float(x),float(y))*bp).rgb;
+        blur/=9.0;
+        float mid=1.0-abs(luma(c)-0.5)*2.0;
+        c+=(c-blur)*uClarity*mid*3.0;
+      }
+
+      // Texture (fine detail contrast, tighter radius than clarity)
+      if(abs(uTexture)>0.001){
+        vec2 tp=1.5/uRes;
+        vec3 tb=(
+          texture2D(tDiffuse,vUv+vec2(-tp.x,0)).rgb+
+          texture2D(tDiffuse,vUv+vec2(tp.x,0)).rgb+
+          texture2D(tDiffuse,vUv+vec2(0,-tp.y)).rgb+
+          texture2D(tDiffuse,vUv+vec2(0,tp.y)).rgb)/4.0;
+        c+=(c-tb)*uTexture*4.0;
+      }
+
+      // Dehaze (boost contrast + saturation in midtones)
+      if(uDehaze>0.001){
+        float dh=uDehaze*0.4;
+        c=(c-0.5)*(1.0+dh)+0.5;
+        float gl=luma(c);
+        c=mix(vec3(gl),c,1.0+dh);
+      }
+
+      // Fade (lifts blacks for matte/film look)
+      c=mix(c,vec3(0.5),uFade*0.35);
+
+      // Vibrance
+      vec3 hsl=rgb2hsl(c);
+      hsl.y=clamp(hsl.y+uVib*(1.0-hsl.y),0.0,1.0);
+      c=hsl2rgb(hsl);
+
+      // Saturation
+      c=mix(vec3(luma(c)),c,1.0+uSat);
+
+      // Hue rotation
+      if(abs(uHue)>0.001){
+        vec3 h2=rgb2hsl(c);
+        h2.x=mod(h2.x+uHue/360.0,1.0);
+        c=hsl2rgb(h2);
+      }
+
+      // Warmth + Tint
+      c.r+=uWarm*0.12; c.b-=uWarm*0.12;
+      c.g+=uTint*0.08;
+
+      // Color Grading (shadows / mids / highlights)
+      float shW=1.0-smoothstep(0.0,0.5,luma(c));
+      float hiW=smoothstep(0.5,1.0,luma(c));
+      float midW=1.0-abs(luma(c)-0.5)*2.0;
+      c=mix(c,uShCol,shW*uShBlend*0.7);
+      c=mix(c,uMidCol,midW*uMidBlend*0.5);
+      c=mix(c,uHiCol,hiW*uHiBlend*0.7);
+
+      // Bloom (glow on bright areas)
+      if(uFBloom>0.001){
+        float bl=smoothstep(0.7,1.0,luma(c));
+        c+=bl*uFBloom*vec3(1.0,0.95,0.8);
+      }
+
+      // Film grain
+      if(uFGrain>0.001){
+        float n=rand(vUv+fract(uTime*0.13))*2.0-1.0;
+        c+=n*uFGrain*0.06;
+      }
+
+      // Vignette
+      if(uVig>0.001){
+        vec2 d=vUv-0.5;
+        float v=1.0-dot(d,d)*uVig*2.5*uVigF;
+        c*=clamp(v,0.0,1.0);
+      }
+
+      // Night Vision pass
+      if(uNvOn>0.5){
+        float l=luma(c);
+        l=pow(max(l,0.0),0.45);
+        l+=smoothstep(0.6,1.0,l)*uBloom;
+        vec3 nv=l*uNvTint;
+        nv+=(rand(vUv+fract(uTime*0.07))*2.0-1.0)*uGrain*0.08;
+        vec2 d=vUv-0.5;
+        nv*=clamp(1.0-dot(d,d)*uVig*2.5,0.0,1.0);
+        gl_FragColor=vec4(clamp(nv,0.0,1.0),1.0);
+      } else {
+        gl_FragColor=vec4(clamp(c,0.0,1.0),1.0);
+      }
+    }
+  `,
+  depthTest: false,
+  depthWrite: false,
+});
+
+const nvQuad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), nvMaterial);
+const nvScene = new THREE.Scene();
+const nvCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+nvScene.add(nvQuad);
+
+// Wire NV controls
+function bindNV(id, valId, key, label) {
+  const el = document.getElementById(id);
+  const vEl = document.getElementById(valId);
+  el.addEventListener('input', () => {
+    const v = Number(el.value);
+    nvState[key] = v;
+    if (id === 'nv-on') {
+      nvState.on = v === 1;
+      vEl.textContent = nvState.on ? 'on' : 'off';
+      irLight.intensity = nvState.on ? nvState.power : 0;
+      ambient.intensity   = nvState.on ? 0 : 0.4;
+      keyLight.intensity  = nvState.on ? 0 : 1.2;
+      fillLight.intensity = nvState.on ? 0 : 0.4;
+      nvMaterial.uniforms.uNvOn.value = nvState.on ? 1.0 : 0.0;
+    } else {
+      vEl.textContent = v;
+    }
+    if (id === 'nv-range') irLight.angle = (v / 60) * (Math.PI / 2);
+    if (id === 'nv-power' && nvState.on) irLight.intensity = v;
+    if (id === 'nv-grain') nvMaterial.uniforms.uGrain.value = v;
+    if (id === 'nv-bloom') nvMaterial.uniforms.uBloom.value = v;
+    if (id === 'nv-vig')   nvMaterial.uniforms.uVig.value = v;
+    saveState();
+  });
+}
+
+bindNV('nv-on',    'nv-on-v',    'on',    '');
+bindNV('nv-range', 'nv-range-v', 'range', '');
+bindNV('nv-power', 'nv-power-v', 'power', '');
+bindNV('nv-grain', 'nv-grain-v', 'grain', '');
+bindNV('nv-bloom', 'nv-bloom-v', 'bloom', '');
+bindNV('nv-vig',   'nv-vig-v',   'vig',   '');
+
+document.getElementById('nv-tint-col').addEventListener('input', e => {
+  const c = new THREE.Color(e.target.value);
+  nvMaterial.uniforms.uNvTint.value.set(c.r, c.g, c.b);
+  saveState();
+});
+
+// Image filter bindings
+[
+  ['f-exp','f-exp-v','','uExp'],['f-con','f-con-v','','uCon'],
+  ['f-hi','f-hi-v','','uHi'],['f-sh','f-sh-v','','uSh'],
+  ['f-whites','f-whites-v','','uWhites'],['f-blacks','f-blacks-v','','uBlacks'],
+  ['f-gamma','f-gamma-v','','uGamma'],['f-lift','f-lift-v','','uLift'],
+  ['f-gain','f-gain-v','','uGain'],
+  ['f-rl','f-rl-v','','uRL'],['f-rg','f-rg-v','','uRG'],['f-rgain','f-rgain-v','','uRGain'],
+  ['f-gl','f-gl-v','','uGL'],['f-gg','f-gg-v','','uGG'],['f-ggain','f-ggain-v','','uGGain'],
+  ['f-bl','f-bl-v','','uBL'],['f-bg','f-bg-v','','uBG'],['f-bgain','f-bgain-v','','uBGain'],
+  ['f-sat','f-sat-v','','uSat'],['f-vib','f-vib-v','','uVib'],
+  ['f-warm','f-warm-v','','uWarm'],['f-tint','f-tint-v','','uTint'],
+  ['f-hue','f-hue-v','°','uHue'],['f-dehaze','f-dehaze-v','','uDehaze'],
+  ['f-fade','f-fade-v','','uFade'],
+  ['f-clarity','f-clarity-v','','uClarity'],['f-texture','f-texture-v','','uTexture'],
+  ['f-sharp','f-sharp-v','','uSharp'],['f-nr','f-nr-v','','uNR'],
+  ['f-vig','f-vig-v','','uVig'],['f-vig-f','f-vig-f-v','','uVigF'],
+  ['f-grain','f-grain-v','','uFGrain'],['f-bloom','f-bloom-v','','uFBloom'],
+  ['f-ca','f-ca-v','','uCA'],
+  ['f-sh-blend','f-sh-blend-v','','uShBlend'],
+  ['f-mid-blend','f-mid-blend-v','','uMidBlend'],
+  ['f-hi-blend','f-hi-blend-v','','uHiBlend'],
+].forEach(([id,valId,suffix,uniform]) => {
+  bind(id, valId, suffix, v => { nvMaterial.uniforms[uniform].value = v; });
+});
+
+// Color grading pickers
+['sh','mid','hi'].forEach(k => {
+  const uName = k==='sh'?'uShCol':k==='mid'?'uMidCol':'uHiCol';
+  document.getElementById(`f-${k}-col`).addEventListener('input', e => {
+    const c = new THREE.Color(e.target.value);
+    nvMaterial.uniforms[uName].value.set(c.r,c.g,c.b);
+    saveState();
+  });
+});
+
+// Apply saved filter + NV state (must run after nvMaterial + irLight exist)
+// Apply all saved filter uniforms on boot
+;[
+  ['f-exp','uExp'],['f-con','uCon'],['f-hi','uHi'],['f-sh','uSh'],
+  ['f-whites','uWhites'],['f-blacks','uBlacks'],['f-gamma','uGamma'],
+  ['f-lift','uLift'],['f-gain','uGain'],
+  ['f-rl','uRL'],['f-rg','uRG'],['f-rgain','uRGain'],
+  ['f-gl','uGL'],['f-gg','uGG'],['f-ggain','uGGain'],
+  ['f-bl','uBL'],['f-bg','uBG'],['f-bgain','uBGain'],
+  ['f-sat','uSat'],['f-vib','uVib'],['f-warm','uWarm'],
+  ['f-tint','uTint'],['f-hue','uHue'],['f-dehaze','uDehaze'],['f-fade','uFade'],
+  ['f-clarity','uClarity'],['f-texture','uTexture'],['f-sharp','uSharp'],['f-nr','uNR'],
+  ['f-vig','uVig'],['f-vig-f','uVigF'],['f-grain','uFGrain'],
+  ['f-bloom','uFBloom'],['f-ca','uCA'],
+  ['f-sh-blend','uShBlend'],['f-mid-blend','uMidBlend'],['f-hi-blend','uHiBlend'],
+].forEach(([id,u]) => {
+  const el = document.getElementById(id);
+  if(el) nvMaterial.uniforms[u].value = Number(el.value);
+});
+['sh','mid','hi'].forEach(k => {
+  const uName = k==='sh'?'uShCol':k==='mid'?'uMidCol':'uHiCol';
+  const el = document.getElementById(`f-${k}-col`);
+  if(el){ const c=new THREE.Color(el.value); nvMaterial.uniforms[uName].value.set(c.r,c.g,c.b); }
+});
+nvState.power = Number(document.getElementById('nv-power').value);
+nvState.range = Number(document.getElementById('nv-range').value);
+nvState.on = Number(document.getElementById('nv-on').value) === 1;
+nvMaterial.uniforms.uNvOn.value = nvState.on ? 1.0 : 0.0;
+irLight.intensity   = nvState.on ? nvState.power : 0;
+irLight.angle       = (nvState.range / 60) * (Math.PI / 2);
+ambient.intensity   = nvState.on ? 0 : 0.4;
+keyLight.intensity  = nvState.on ? 0 : 1.2;
+fillLight.intensity = nvState.on ? 0 : 0.4;
+document.getElementById('nv-on-v').textContent = nvState.on ? 'on' : 'off';
+const savedTint = new THREE.Color(document.getElementById('nv-tint-col').value);
+nvMaterial.uniforms.uNvTint.value.set(savedTint.r, savedTint.g, savedTint.b);
+
+// Animate
+const clock = new THREE.Clock();
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Update IR light to follow camera
+  if (nvState.on) {
+    irLight.position.copy(camera.position);
+    const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+    irLight.target.position.copy(camera.position).addScaledVector(dir, 5);
+    irLight.target.updateMatrixWorld();
+  }
+
+  // Always render through post-processing (NV + image filters)
+  renderer.setRenderTarget(renderTarget);
+  renderer.render(scene, camera);
+  renderer.setRenderTarget(null);
+  nvMaterial.uniforms.tDiffuse.value = renderTarget.texture;
+  nvMaterial.uniforms.uTime.value = t;
+  renderer.render(nvScene, nvCamera);
+
+  // Composite video plane on top — immune to all post-processing
+  renderer.autoClear = false;
+  renderer.clearDepth();
+  renderer.render(screenScene, camera);
+  renderer.autoClear = true;
+
+  // Keep the invite label welded to the TV's on-screen position
+  if (window._positionInviteLabel) window._positionInviteLabel();
+}
+animate();
+
+window.addEventListener('resize', () => {
+  const { w, h } = layoutStage();
+  renderer.setSize(w, h);
+  renderTarget.dispose();
+  renderTarget = new THREE.WebGLRenderTarget(w, h);
+});
+
+</script>
+</body>
+</html>
