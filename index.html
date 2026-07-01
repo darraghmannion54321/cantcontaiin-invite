@@ -331,15 +331,44 @@ document.addEventListener('DOMContentLoaded', function(){
   submitBtn.addEventListener('mouseout',  function(){ submitBtn.style.background = '#1a5c2a'; });
 
   var inviteShown = false;
+  var invTyping = false;
 
   function showFullForm() {
-    frmText.innerHTML = inviteTextA + inviteTextB;
+    inviteShown = true;
+    invTyping = true;
+    var full = inviteTextA + inviteTextB;
+    frmText.textContent = '';
+    var cursor = document.createElement('span');
+    cursor.className = 'inv-cursor';
+    frmText.appendChild(cursor);
+    inputArea.style.display = 'none';
+
+    var i = 0;
+    var speed = 9;               // ms per character — terminal feel
+    function typeChar() {
+      if (i < full.length) {
+        cursor.insertAdjacentText('beforebegin', full.charAt(i));
+        i++;
+        invTypingTimer = setTimeout(typeChar, speed);
+      } else {
+        invTyping = false;
+        frmText.appendChild(inputArea);
+        inputArea.style.display = 'block';
+      }
+    }
+    typeChar();
+  }
+
+  // Instantly finish the typing animation (tap to skip)
+  function finishTyping() {
+    if (invTypingTimer) { clearTimeout(invTypingTimer); invTypingTimer = null; }
+    invTyping = false;
+    frmText.textContent = inviteTextA + inviteTextB;
     var cursor = document.createElement('span');
     cursor.className = 'inv-cursor';
     frmText.appendChild(cursor);
     frmText.appendChild(inputArea);
     inputArea.style.display = 'block';
-    inviteShown = true;
   }
 
   function openInviteForm() {
@@ -399,10 +428,12 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   if (frmClose) frmClose.addEventListener('click', closeInviteForm);
-  // Click background while typing = skip to full form, not close
+  // Click background while typing = skip to full text; otherwise close
   frm.addEventListener('click', function(e){
     if (e.target !== frm) return;
-    if (!inviteShown) { showFullForm(); } else { closeInviteForm(); }
+    if (invTyping) { finishTyping(); }
+    else if (!inviteShown) { showFullForm(); }
+    else { closeInviteForm(); }
   });
 
 
