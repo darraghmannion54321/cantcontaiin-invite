@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function(){
   var frmClose = document.getElementById('invite-form-close');
   var invTypingTimer = null;
 
-  var inviteTextA = "HELLO,\n\nYOU'VE BEEN INVITED TO RECORD A SET WITH\n\nCANT CONTAiiN\n\nBASED IN GALWAY, IRELAND. RECORDINGS TAKE PLACE IN A PITCH BLACK CONTAINER. YOU WILL RECEIVE A MYSTERY TRACK REQUEST FROM A PREVIOUS DJ ON A USB… MIX IT IN AND YOU CAN LEAVE A TRACK FOR THE GUEST AFTER YOU.\n\nSHOT FROM 6PM ONWARDS MON–SUN.\n\nPLEASE ENTER:\n\n1. DJ NAME\n2. AVAILABILITY… DATE & TIME\n\nPRESS SUBMIT TO CONFIRM";
+  var inviteTextA = "HELLO,\n\nYOU'VE BEEN INVITED TO RECORD A SET WITH\n\nCANT CONTAiiN\n\nBASED IN GALWAY, IRELAND. RECORDINGS TAKE PLACE IN A PITCH BLACK CONTAINER. YOU WILL RECEIVE A MYSTERY TRACK REQUEST FROM A PREVIOUS DJ ON A USB… MIX IT IN AND YOU CAN LEAVE A TRACK FOR THE GUEST AFTER YOU.\n\nSHOT FROM 6PM ONWARDS MON–SUN.\n\nPLEASE ENTER:\n\nDJ NAME\nAVAILABILITY… DATE & TIME\n\nPRESS SUBMIT TO CONFIRM\n";
   var inviteTextB = "\n\nQUERIES: @Darragh_ii / @ii.galway\nEMAIL: ii.collectivegalway@gmail.com";
 
   var inputArea = document.getElementById('invite-input-area');
@@ -333,42 +333,63 @@ document.addEventListener('DOMContentLoaded', function(){
   var inviteShown = false;
   var invTyping = false;
 
+  var speed = 26;               // ms per character — terminal feel
+
   function showFullForm() {
     inviteShown = true;
     invTyping = true;
-    var full = inviteTextA + inviteTextB;
     frmText.textContent = '';
-    var cursor = document.createElement('span');
-    cursor.className = 'inv-cursor';
-    frmText.appendChild(cursor);
     inputArea.style.display = 'none';
 
-    var i = 0;
-    var speed = 26;              // ms per character — terminal feel
-    function typeChar() {
-      if (i < full.length) {
-        cursor.insertAdjacentText('beforebegin', full.charAt(i));
-        i++;
-        invTypingTimer = setTimeout(typeChar, speed);
+    // Block A (intro + instructions), then the SUBMIT BOX, then block B (queries)
+    var partA = document.createElement('span');
+    var cursor = document.createElement('span');
+    cursor.className = 'inv-cursor';
+    frmText.appendChild(partA);
+    frmText.appendChild(cursor);
+
+    var ia = 0, ib = 0, partB = null;
+
+    function typeB() {
+      if (ib < inviteTextB.length) {
+        partB.insertAdjacentText('beforeend', inviteTextB.charAt(ib));
+        ib++;
+        invTypingTimer = setTimeout(typeB, speed);
       } else {
         invTyping = false;
-        frmText.appendChild(inputArea);
-        inputArea.style.display = 'block';
       }
     }
-    typeChar();
+    function typeA() {
+      if (ia < inviteTextA.length) {
+        partA.insertAdjacentText('beforeend', inviteTextA.charAt(ia));
+        ia++;
+        invTypingTimer = setTimeout(typeA, speed);
+      } else {
+        // drop the submit box in, then continue typing the queries after it
+        frmText.insertBefore(inputArea, cursor);
+        inputArea.style.display = 'block';
+        partB = document.createElement('span');
+        frmText.insertBefore(partB, cursor);
+        typeB();
+      }
+    }
+    typeA();
   }
 
   // Instantly finish the typing animation (tap to skip)
   function finishTyping() {
     if (invTypingTimer) { clearTimeout(invTypingTimer); invTypingTimer = null; }
     invTyping = false;
-    frmText.textContent = inviteTextA + inviteTextB;
+    frmText.textContent = '';
+    var a = document.createElement('span'); a.textContent = inviteTextA;
+    frmText.appendChild(a);
+    inputArea.style.display = 'block';
+    frmText.appendChild(inputArea);
+    var b = document.createElement('span'); b.textContent = inviteTextB;
+    frmText.appendChild(b);
     var cursor = document.createElement('span');
     cursor.className = 'inv-cursor';
     frmText.appendChild(cursor);
-    frmText.appendChild(inputArea);
-    inputArea.style.display = 'block';
   }
 
   function openInviteForm() {
