@@ -798,9 +798,14 @@ window.THREE = THREE;
 const screenVideo = document.createElement('video');
 screenVideo.loop = true;
 screenVideo.muted = true;
+screenVideo.defaultMuted = true;
 screenVideo.playsInline = true;
+screenVideo.autoplay = true;
 screenVideo.setAttribute('playsinline', '');
+screenVideo.setAttribute('webkit-playsinline', '');
 screenVideo.setAttribute('muted', '');
+screenVideo.setAttribute('autoplay', '');
+screenVideo.setAttribute('preload', 'auto');
 screenVideo.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;';
 document.body.appendChild(screenVideo);
 const screenTex = new THREE.VideoTexture(screenVideo);
@@ -942,11 +947,24 @@ document.getElementById('screen-video-file').addEventListener('change', async e 
 // Load screen.mp4 immediately — don't wait for IndexedDB
 screenVideo.src = './screen.mp4';
 screenMesh.visible = true;
-screenVideo.play().catch(() => {
-  const resume = () => { screenVideo.play(); document.removeEventListener('touchstart', resume); document.removeEventListener('click', resume); };
-  document.addEventListener('touchstart', resume, { once: true });
-  document.addEventListener('click', resume, { once: true });
-});
+
+// Robust play for iOS / Instagram in-app browser (incl. Low Power Mode, which
+// silently STALLS autoplay instead of throwing — so we can't rely on .catch).
+// Strategy: try immediately, retry when the video is ready, and — crucially —
+// kick it on the very first user gesture no matter what, since a gesture-
+// initiated play() is allowed even when autoplay is fully blocked.
+function tryPlayVideo() { try { var p = screenVideo.play(); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+tryPlayVideo();
+screenVideo.addEventListener('loadeddata', tryPlayVideo);
+screenVideo.addEventListener('canplay', tryPlayVideo);
+
+var _gestureEvents = ['touchstart', 'pointerdown', 'click'];
+function _kickVideo() { tryPlayVideo(); }
+_gestureEvents.forEach(function(ev){ document.addEventListener(ev, _kickVideo, { passive: true }); });
+// Once it's genuinely playing, stop listening.
+screenVideo.addEventListener('playing', function(){
+  _gestureEvents.forEach(function(ev){ document.removeEventListener(ev, _kickVideo, { passive: true }); });
+}, { once: true });
 
 // Override with saved video from IndexedDB if one exists
 loadVideoBlob().then(blob => {
