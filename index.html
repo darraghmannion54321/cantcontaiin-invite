@@ -7,9 +7,9 @@
 (function(){
   var _def = {"bg-color":"#ffffff","tv-scale":"4.18","tv-x":"3.29","tv-y":"-0.04","tv-z":"-0.01","tv-ry":"90","table-scale":"3.13","table-x":"4.95","table-y":"-2.67","table-z":"0","table-ry":"90","con-scale":"0.05","con-x":"1.65","con-y":"2.72","con-z":"-5","con-ry":"0","scr-scale":"0.93","scr-w":"2.78","scr-h":"2.19","scr-x":"5","scr-y":"0.91","scr-z":"0.02","scr-ry":"-92","sf-exp":"-0.37","sf-bri":"-0.08","sf-con":"-0.1","sf-gamma":"0.82","sf-lift":"0","sf-gain":"1.39","sf-sat":"0","sf-hue":"-22","sf-warm":"-0.28","sf-tint":"0.73","sf-sharp":"0","sf-vig":"1.96","cx-pos":"0.83","cy-pos":"0.84","cz-pos":"-4","cam-x":"0.02","cam-y":"1.4","cam-z":"-0.09","cam-pan":"90","cam-tilt":"-7","fov":"67","nv-on":"1","nv-range":"39","nv-power":"8.5","nv-grain":"1","nv-bloom":"0","nv-vig":"1.42","nv-tint-col":"#adffbc","f-exp":"2.58","f-con":"0.02","f-hi":"0.27","f-sh":"-0.01","f-whites":"-0.04","f-blacks":"0.04","f-gamma":"1","f-lift":"0","f-gain":"1.49","f-rl":"-0.08","f-rg":"0.3","f-rgain":"1.84","f-gl":"0.03","f-gg":"0.95","f-ggain":"0.94","f-bl":"0.01","f-sat":"-1","f-vib":"1","f-warm":"0.11","f-tint":"-0.24","f-hue":"0","f-sharp":"0","f-clarity":"0.08","f-texture":"-0.04","f-dehaze":"0.17","f-fade":"0","f-nr":"0","f-ca":"0","f-grain":"0.65","f-vig":"1.55","f-vig-f":"0.63","f-bloom":"2","f-bg":"1","f-bgain":"1.27","f-hi-col":"#5b9753","f-hi-blend":"0","f-mid-col":"#808080","f-mid-blend":"0.65","f-sh-col":"#000000","f-sh-blend":"0.76","planeEnabled":{"x":false,"y":false,"z":false},"planeFlipped":{"x":1,"y":1,"z":1}};
   try { var _existing = JSON.parse(localStorage.getItem('tv-scene-v1') || 'null'); var _merged = Object.assign({}, _def, _existing || {}); localStorage.setItem('tv-scene-v1', JSON.stringify(_merged)); } catch(e) { try { localStorage.setItem('tv-scene-v1', JSON.stringify(_def)); } catch(e2) {} }
-  if (!localStorage.getItem('tv-invite-label')) {
-    localStorage.setItem('tv-invite-label', JSON.stringify({"ox":-0.0155,"oy":-10.9847,"size":8}));
-  }
+  // Always force the locked label position — overrides any stale value saved on
+  // a returning visitor's device (otherwise old positions stick forever).
+  localStorage.setItem('tv-invite-label', JSON.stringify({"ox":-0.0155,"oy":-10.9847,"size":8}));
   if (!localStorage.getItem('tv-smiley-y')) {
     localStorage.setItem('tv-smiley-y', '8px');
   }
